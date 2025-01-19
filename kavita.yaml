@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  kavita:
+    image: ghcr.io/kareadita/kavita:0.8.4    # Using the stable branch from ghcr.io
+    volumes:
+      - /mnt/user/library/manga:/manga
+      - /mnt/user/library/comics:/comics
+      - /mnt/user/library/books:/books
+      - /mnt/user/docker/volumes/kavita/config:/kavita/config     # /kavita/config must not be changed
+    environment:
+      - TZ=America/Chicago
+    ports:
+      - "5001:5000"
+    networks:
+      - reverse-proxy
+
+networks:
+  reverse-proxy:
+    external: true
