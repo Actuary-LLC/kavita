@@ -23,7 +23,7 @@ services:
         - "traefik.http.routers.books.tls.certresolver=myresolver"
         - "traefik.http.services.books.loadbalancer.server.port=5000"
         ## Middlewares
-        - "traefik.http.routers.books.middlewares=authentik"
+        - "traefik.http.routers.books.middlewares=authentik@file"
         #DIUN
         - diun.enable = true
         - diun.notify_on = new
