@@ -19,7 +19,7 @@ services:
         - "traefik.enable=true"
         - "traefik.http.routers.kavita.rule=Host(`books.actuary.dev`)"
         - "traefik.http.routers.kavita.entrypoints=websecure"
-        - "traefik.http.routers.kavita.service=notes"
+        - "traefik.http.routers.kavita.service=kavita"
         - "traefik.http.routers.kavita.tls.certresolver=myresolver"
         - "traefik.http.services.kavita.loadbalancer.server.port=5000"
         ## Middlewares
