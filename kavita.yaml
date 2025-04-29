@@ -17,13 +17,12 @@ services:
     deploy:
       labels:
         - "traefik.enable=true"
-        - "traefik.http.routers.books.rule=Host(`books.actuary.dev`)"
-        - "traefik.http.routers.books.entrypoints=websecure"
-        - "traefik.http.routers.books.service=books"
-        - "traefik.http.routers.books.tls.certresolver=myresolver"
-        - "traefik.http.services.books.loadbalancer.server.port=5000"
-        ## Middlewares
-        - "traefik.http.routers.books.middlewares=authentik@file"
+        - "traefik.http.routers.kavita.rule=Host(`kavita.actuary.dev`)"
+        - "traefik.http.routers.kavita.entrypoints=websecure"
+        - "traefik.http.routers.kavita.service=kavita"
+        - "traefik.http.routers.kavita.tls.certresolver=myresolver"
+        - "traefik.http.services.kavita.loadbalancer.server.port=5000"
+        - "traefik.http.routers.kavita.middlewares=authentik@file"
         #DIUN
         - diun.enable = true
         - diun.notify_on = new
