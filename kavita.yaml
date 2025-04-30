@@ -2,11 +2,11 @@ version: "3.9"
 
 services:
   main:
-    image: ghcr.io/kareadita/kavita:0.8.4    # Using the stable branch from ghcr.io
+    image: ghcr.io/kareadita/kavita:0.8.6    # Using the stable branch from ghcr.io
     volumes:
       - /mnt/user/library/manga:/manga
       - /mnt/user/library/comics:/comics
-      - /mnt/user/library/books:/books
+      - /mnt/user/vault/books:/books
       - /mnt/user/docker/volumes/kavita/config:/kavita/config     # /kavita/config must not be changed
     environment:
       - TZ=America/Chicago
@@ -17,7 +17,7 @@ services:
     deploy:
       labels:
         - "traefik.enable=true"
-        - "traefik.http.routers.kavita.rule=Host(`kavita.actuary.dev`)"
+        - "traefik.http.routers.kavita.rule=Host(`books.actuary.dev`)"
         - "traefik.http.routers.kavita.entrypoints=websecure"
         - "traefik.http.routers.kavita.service=kavita"
         - "traefik.http.routers.kavita.tls.certresolver=myresolver"
